@@ -8,12 +8,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
+
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.9'
+
       - name: Install Libraries
-        run: run: pip install python-telegram-bot requests flask pyTelegramBotAPI aiohttp
+        run: |
+          pip install python-telegram-bot requests flask pyTelegramBotAPI aiohttp
+
       - name: Start Bot
         run: python leaderr.py
